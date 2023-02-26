@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      >
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body style="background-color:Black;">
+<h2 style="color:white" align="center">Student Registration Form</h2><br><br>
+<div  color="white">
+		<div align = "center" sec:authorize="hasAnyAuthority('ADMIN')">		   
+		     <button type="button" style="color:white"><a  th:href="@{'/new'}">Add new</a></button><br><br><br>     
+	    </div>
+<div  align = "center" >
+                 <table border="1px solid white" cellpadding="21" cellspacing="21">
+  <thead >
+    <tr>
+      		<th style="color:white">Student ID</th>
+            <th style="color:white">Student Name</th> 
+            <th style="color:white">Course</th>
+            <th style="color:white">Fee</th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')" style="color:white">Edit</th>
+            <th sec:authorize="hasAnyAuthority('CREATOR', 'ADMIN')" style="color:white">Delete</th>
+   	</tr>
+  </thead>
+  <tbody>
+      <tr  th:each="student : ${liststudent }">
+		<td style="color:white" th:text="${student.id}">Student ID</td>
+		<td style="color:white" th:text="${student.studentname}">StudentName</td>
+		<td style="color:white" th:text="${student.course}">Course</td>
+		<td style="color:white" th:text="${student.fee}">Fee</td>				
+		<td sec:authorize="hasAnyAuthority('ADMIN')" style="color:white">
+			<a style="color:white" th:href="@{'/edit/' + ${student.id}}">Edit</a>
+		</td>							    
+		<td sec:authorize="hasAnyAuthority('ADMIN')" style="color:white">
+			<a style="color:white" th:href="@{'/delete/' + ${student.id}}">Delete</a>
+		</td>		    
+		</tr> 
+   
+  </tbody>
+</table>             
+                 </div>
+	</tr>
+	</tbody>
+	</table>
+	<div>
+</body>
+</html>

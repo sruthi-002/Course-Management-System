@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+.split {
+  height:50%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-left:350px;
+  margin-top:100px
+}
+.left {
+  left: 0;
+  background-color:darkcyan;
+  color: white;
+}
+
+.right {
+  right: 0;
+  background-color:chocolate;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+}
+</style>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="split left">
+<h1 align="center">Welcome</h1><br>
+<div class="centered" >
+<h3>Please login</h3>
+        <div>
+<form action="#" th:action="@{/view}" th:object="${liststudent}" method="get">
+<br>
+        <label >Enter the Email</label>
+        <input align="center" type="text" placeholder="Enter the Email" id="test1" required><br><br>
+        <label >Enter the Password</label>
+        <input align="center" type="password" placeholder="Enter the Password" id="test2" required><br><br>
+        <button align="center" color ="green" type="submit">Login</button>
+      </form>
+    </div>
+   </div>
+    </div>
+</div>
+</body>
+</html>
